@@ -27,6 +27,7 @@ A modern, responsive portfolio website showcasing Caleb Yinusa's tech freelancin
 ## Setup
 
 1. Clone the repository:
+
 ```bash
 git clone https://github.com/bigdevsircole/caleb-portfolio.git
 ```
