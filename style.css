@@ -182,13 +182,14 @@
             border-right: 0.15em solid rgba(255,255,255,0.8);
             font-weight: 800;
             letter-spacing: 0.05em;
-            animation: typing 4s steps(40, end) infinite,
+            animation: typing 4s steps(20, end) infinite,
                        blink-caret 0.75s step-end infinite;
+            max-width: 100%;
         }
 
         @keyframes typing {
             0%, 100% { width: 0 }
-            30%, 70% { width: 19ch }
+            30%, 70% { width: 100% }
             100% { width: 0 }
         }
 
@@ -604,9 +605,18 @@
 
         /* Responsive Design */
         @media (max-width: 768px) {
+            h1 {
+                font-size: clamp(1.8rem, 4vw, 2.5rem);
+                margin-bottom: 1rem;
+            }
 
             .typing {
-                font-size: 1.5rem;
+                font-size: clamp(1.8rem, 4vw, 2.5rem);
+                line-height: 1.2;
+            }
+
+            .hero-content {
+                padding-top: 5rem;
             }
 
             .nav-links {
