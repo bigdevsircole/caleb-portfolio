@@ -72,15 +72,15 @@
         <div class="container">
             <nav>
                 <div class="logo">Caleb <span>Yinusa</span></div>
-                <ul class="nav-links">
-                    <li><a href="#home">Home</a></li>
-                    <li><a href="#about">About</a></li>
-                    <li><a href="#services">Services</a></li>
-                    <li><a href="#testimonials">Testimonials</a></li>
-                    <li><a href="#resources">Resources</a></li>
-                    <li><a href="#contact">Contact</a></li>
+                <ul class="nav-links" id="nav-links" role="menubar" aria-label="Main navigation">
+                    <li role="none"><a href="#home" role="menuitem">Home</a></li>
+                    <li role="none"><a href="#about" role="menuitem">About</a></li>
+                    <li role="none"><a href="#services" role="menuitem">Services</a></li>
+                    <li role="none"><a href="#testimonials" role="menuitem">Testimonials</a></li>
+                    <li role="none"><a href="#resources" role="menuitem">Resources</a></li>
+                    <li role="none"><a href="#contact" role="menuitem">Contact</a></li>
                 </ul>
-                <button class="mobile-menu-btn">☰</button>
+                <button class="mobile-menu-btn" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="nav-links">☰</button>
             </nav>
         </div>
     </header>
@@ -204,9 +204,9 @@
     <section id="resources" class="resources">
         <div class="container">
             <h2>Resources</h2>
-            <div class="resources-tabs">
-                <button class="tab-btn active" data-tab="courses">Courses</button>
-                <button class="tab-btn" data-tab="articles">Articles</button>
+            <div class="resources-tabs" role="tablist" aria-label="Resource sections">
+                <button class="tab-btn active" data-tab="courses" role="tab" aria-selected="true" aria-controls="courses">Courses</button>
+                <button class="tab-btn" data-tab="articles" role="tab" aria-selected="false" aria-controls="articles">Articles</button>
             </div>
             <div id="courses" class="tab-content active">
                 <div class="courses-grid">
@@ -298,19 +298,19 @@
             <form class="contact-form glass fade-in" id="contact-form">
                 <div class="form-group">
                     <label for="name" class="form-label">Your Name</label>
-                    <input type="text" id="name" class="form-input" required>
+                    <input type="text" id="name" name="name" class="form-input" required minlength="2" maxlength="100" autocomplete="name" aria-required="true">
                 </div>
                 <div class="form-group">
                     <label for="email" class="form-label">Your Email</label>
-                    <input type="email" id="email" class="form-input" required>
+                    <input type="email" id="email" name="email" class="form-input" required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" autocomplete="email" aria-required="true">
                 </div>
                 <div class="form-group">
                     <label for="subject" class="form-label">Subject</label>
-                    <input type="text" id="subject" class="form-input" required>
+                    <input type="text" id="subject" name="subject" class="form-input" required minlength="2" maxlength="200" aria-required="true">
                 </div>
                 <div class="form-group">
                     <label for="message" class="form-label">Your Message</label>
-                    <textarea id="message" class="form-textarea" required></textarea>
+                    <textarea id="message" name="message" class="form-textarea" required minlength="10" maxlength="1000" aria-required="true"></textarea>
                 </div>
                 <button type="submit" class="btn btn-primary">Send Message</button>
             </form>
@@ -322,11 +322,11 @@
         <div class="container">
             <div class="logo">Caleb <span>Yinusa</span></div>
             <p>Tech Freelancer</p>
-            <div class="social-links">
-                <a href="#" class="social-link glass">📘</a>
-                <a href="#" class="social-link glass">📷</a>
-                <a href="#" class="social-link glass">🐦</a>
-                <a href="#" class="social-link glass">💼</a>
+            <div class="social-links" aria-label="Social media links">
+                <a href="https://facebook.com/calebyinusa" class="social-link glass" aria-label="Visit my Facebook profile" target="_blank" rel="noopener noreferrer"><i class="fab fa-facebook-f" aria-hidden="true"></i></a>
+                <a href="https://instagram.com/calebyinusa" class="social-link glass" aria-label="Visit my Instagram profile" target="_blank" rel="noopener noreferrer"><i class="fab fa-instagram" aria-hidden="true"></i></a>
+                <a href="https://twitter.com/calebyinusa" class="social-link glass" aria-label="Visit my Twitter profile" target="_blank" rel="noopener noreferrer"><i class="fab fa-twitter" aria-hidden="true"></i></a>
+                <a href="https://linkedin.com/in/calebyinusa" class="social-link glass" aria-label="Visit my LinkedIn profile" target="_blank" rel="noopener noreferrer"><i class="fab fa-linkedin-in" aria-hidden="true"></i></a>
             </div>
             <p>&copy; 2025 Caleb Yinusa. All rights reserved.</p>
         </div>
