@@ -1,23 +1,45 @@
 
-        /* Reset and Base Styles */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+/* Reset and Base Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 
-        :root {
-            --primary-blue: #2563eb;
-            --primary-red: #dc2626;
-            --dark-bg: #0f172a;
-            --light-bg: rgba(255, 255, 255, 0.1);
-            --text-light: #f8fafc;
-            --text-dark: #1e293b;
-            --glass-bg: rgba(255, 255, 255, 0.05);
-            --glass-border: rgba(255, 255, 255, 0.1);
-            --shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
-            --transition: all 0.3s ease;
-        }
+html {
+    scroll-behavior: smooth;
+    /* Prevent text size adjustment after orientation changes in iOS */
+    -webkit-text-size-adjust: 100%;
+    /* Enable smooth scrolling for all scroll-behavior-supporting browsers */
+    scroll-padding-top: 80px; /* Accounts for fixed header */
+}
+
+:root {
+    /* Color Variables */
+    --primary-blue: #2563eb;
+    --primary-red: #dc2626;
+    --dark-bg: #0f172a;
+    --light-bg: rgba(255, 255, 255, 0.1);
+    --text-light: #f8fafc;
+    --text-dark: #1e293b;
+    --glass-bg: rgba(255, 255, 255, 0.05);
+    --glass-border: rgba(255, 255, 255, 0.1);
+    
+    /* Effects */
+    --shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+    --transition: all 0.3s ease;
+    
+    /* Layout */
+    --header-height: 80px;
+    --container-padding: 1rem;
+    --section-spacing: 5rem;
+    
+    /* Z-index layers */
+    --z-header: 1000;
+    --z-modal: 2000;
+    --z-tooltip: 3000;
+    --z-overlay: 4000;
+}
 
         body {
             font-family: 'Inter', sans-serif;
