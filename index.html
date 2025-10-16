@@ -19,15 +19,24 @@
     <meta name="apple-mobile-web-app-status-bar-style" content="black">
     
     <!-- Preload Critical Resources -->
-    <link rel="preconnect" href="https://cdnjs.cloudflare.com">
-    <link rel="preconnect" href="https://cdn.jsdelivr.net">
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+    <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+    <link rel="preload" href="style.css" as="style">
+    <link rel="preload" href="/assets/caleb-portfolio-background-video.mp4" as="video" type="video/mp4">
+    <link rel="preload" href="/assets/caleb-yinusa-photo.png" as="image">
     
     <!-- Stylesheets -->
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer">
     
     <!-- Scripts -->
-    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js" defer></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+    <script>
+        // Initialize EmailJS immediately
+        (function() {
+            emailjs.init("y-fZwQR7f20KakfWJ");
+        })();
+    </script>
     
     <!-- Open Graph Meta Tags -->
     <meta property="og:title" content="Caleb Yinusa - Tech Freelancer">
@@ -89,12 +98,12 @@
     <section id="home" class="hero">
         <div class="hero-slider">
             <div class="slide active">
-                <video class="slide-video" autoplay muted playsinline preload="metadata" poster="/assets/caleb-portfolio-background-video-poster.jpg">
-                    <source src="/assets/caleb-portfolio-background-video.mp4" type="video/mp4">
+                <video class="slide-video" autoplay muted playsinline preload="auto">
+                    <source src="./assets/caleb-portfolio-background-video.mp4" type="video/mp4">
                     Your browser does not support the video tag.
                 </video>
             </div>
-            <div class="slide" style="background-image: url('/assets/person-wearing-high-tech-vr-glasses-while-surrounded-by-bright-blue-neon-colors.jpg');" loading="lazy"></div>
+            <div class="slide" style="background-image: url('./assets/person-wearing-high-tech-vr-glasses-while-surrounded-by-bright-blue-neon-colors.jpg');"></div>
             <!-- <div class="slide" style="background-image: url('/images/hero-2.jpg');"></div>
             <div class="slide" style="background-image: url('/images/hero-3.jpg');"></div>
             <div class="slide" style="background-image: url('/images/hero-4.jpg');"></div> -->
@@ -125,7 +134,12 @@
             <h2>About Me</h2>
             <div class="about-content">
                 <div class="about-image">
-                    <img src="./assets/caleb-yinusa-photo.png" alt="Caleb Yinusa - Tech Freelancer" loading="lazy">
+                    <img src="./assets/caleb-yinusa-photo.png" 
+                         alt="Caleb Yinusa - Tech Freelancer" 
+                         loading="lazy"
+                         width="400"
+                         height="400"
+                         decoding="async">
                 </div>
                 <div class="about-text">
                     <h3>Hi, I'm Caleb Yinusa</h3>
@@ -222,7 +236,7 @@
                         <img src="./assets/python_programming_class.PNG" alt="Web Development Fundamentals Course" class="course-image" loading="lazy">
                         <div class="course-info">
                             <h3>Python Programming Masterclass</h3>
-                            <p>A 6 weeks intensive online course on introduction to python, variables and data types, statement, functions, errors and exceptions, modules and packages.</p>
+                            <p>A 6 weeks intensive online course on introduction to python, variables and data types, statement, functions, errors and exceptions, modules and packages</p>
                             <a href="https://paystack.shop/pay/ppclass" class="btn btn-primary" target="_blank" rel="noopener noreferrer">Enroll Now</a>
                         </div>
                     </div>
@@ -295,45 +309,72 @@
     <section id="contact" class="contact">
         <div class="container">
             <h2>Get In Touch</h2>
-            <style>
-                .form-status {
-                    margin: 1rem 0;
-                    padding: 0.75rem;
-                    border-radius: 0.5rem;
-                    background: var(--glass-bg);
-                    text-align: center;
-                }
-                @media (max-width: 768px) {
-                    video.slide-video {
-                        object-fit: cover;
-                        width: 100%;
-                        height: 100%;
-                    }
-                    .slide {
-                        background-size: cover;
-                        background-position: center;
-                    }
-                }
-            </style>
             <form class="contact-form glass fade-in" id="contact-form">
                 <div class="form-group">
                     <label for="name" class="form-label">Your Name</label>
-                    <input type="text" id="name" name="name" class="form-input" required minlength="2" maxlength="100" autocomplete="name" aria-required="true">
+                    <input type="text" id="name" name="name" class="form-input" required>
                 </div>
                 <div class="form-group">
                     <label for="email" class="form-label">Your Email</label>
-                    <input type="email" id="email" name="email" class="form-input" required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" autocomplete="email" aria-required="true">
+                    <input type="email" id="email" name="email" class="form-input" required>
                 </div>
                 <div class="form-group">
                     <label for="subject" class="form-label">Subject</label>
-                    <input type="text" id="subject" name="subject" class="form-input" required minlength="2" maxlength="200" aria-required="true">
+                    <input type="text" id="subject" name="subject" class="form-input" required>
                 </div>
                 <div class="form-group">
                     <label for="message" class="form-label">Your Message</label>
-                    <textarea id="message" name="message" class="form-textarea" required minlength="10" maxlength="1000" aria-required="true"></textarea>
+                    <textarea id="message" name="message" class="form-textarea" required></textarea>
                 </div>
                 <button type="submit" class="btn btn-primary">Send Message</button>
+                <div id="form-status" class="form-status" style="display: none;"></div>
             </form>
+            
+            <script>
+                document.getElementById('contact-form').addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    
+                    // Show loading state
+                    const btn = this.querySelector('button[type="submit"]');
+                    const status = document.getElementById('form-status');
+                    const originalText = btn.textContent;
+                    
+                    btn.disabled = true;
+                    btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
+                    status.style.display = 'block';
+                    status.textContent = 'Sending your message...';
+                    status.style.color = '#2563eb';
+                    
+                    // Get form data
+                    const templateParams = {
+                        to_name: 'Caleb',
+                        from_name: this.name.value,
+                        from_email: this.email.value,
+                        subject: this.subject.value,
+                        message: this.message.value
+                    };
+
+                    // Send email
+                    emailjs.send('service_jqqfn9q', 'template_pjyxg1p', templateParams)
+                        .then(() => {
+                            status.textContent = 'Message sent successfully!';
+                            status.style.color = '#16a34a';
+                            this.reset();
+                            setTimeout(() => {
+                                status.style.display = 'none';
+                            }, 3000);
+                        })
+                        .catch((error) => {
+                            console.error('Error:', error);
+                            status.textContent = 'Failed to send message. Please try again.';
+                            status.style.color = '#dc2626';
+                        })
+                        .finally(() => {
+                            btn.disabled = false;
+                            btn.innerHTML = originalText;
+                        });
+                });
+            </script>
         </div>
     </section>
 
@@ -527,16 +568,11 @@
 
         // Initialize EmailJS with error handling
         (function() {
-            emailjs.init({
-                publicKey: "y-fZwQR7f20KakfWJ",
-                blockHeadless: false, // Enable form submission testing
-                limitRate: {
-                    // Rate limiting options
-                    throttle: 1000, // 1 second between emails
-                    total: 3, // Maximum 3 emails per time unit
-                    timeUnit: 60000 // Time unit in milliseconds (1 minute)
-                }
-            });
+            try {
+                emailjs.init("y-fZwQR7f20KakfWJ");
+            } catch (error) {
+                console.error('EmailJS initialization failed:', error);
+            }
         })();
 
         // Contact Form Submission with enhanced security and validation
@@ -544,72 +580,56 @@
         if (contactForm) {
             contactForm.addEventListener('submit', async function(e) {
                 e.preventDefault();
+                
+                // Form validation
+                const formData = new FormData(this);
+                const email = formData.get('email');
+                const name = formData.get('name');
+                const subject = formData.get('subject');
+                const message = formData.get('message');
 
-                // Get form elements
+                // Basic validation
+                if (!email.includes('@') || !name.trim() || !subject.trim() || !message.trim()) {
+                    alert('Please fill in all fields correctly.');
+                    return;
+                }
+
                 const submitBtn = this.querySelector('button[type="submit"]');
                 const originalBtnText = submitBtn.innerHTML;
-                const formElements = this.querySelectorAll('input, textarea, button');
-                const statusMessage = document.createElement('div');
-                statusMessage.className = 'form-status';
-                this.appendChild(statusMessage);
-
-                // Form validation
-                const email = this.email.value.trim();
-                const name = this.name.value.trim();
-                const subject = this.subject.value.trim();
-                const message = this.message.value.trim();
-
-                // Validation checks
-                if (!email || !name || !subject || !message) {
-                    statusMessage.textContent = 'Please fill in all fields.';
-                    statusMessage.style.color = 'red';
-                    return;
-                }
-
-                if (!email.match(/^[^\s@]+@[^\s@]+\.[^\s@]+$/)) {
-                    statusMessage.textContent = 'Please enter a valid email address.';
-                    statusMessage.style.color = 'red';
-                    return;
-                }
-
+                
                 // Disable form while submitting
+                const formElements = this.querySelectorAll('input, textarea, button');
                 formElements.forEach(el => el.disabled = true);
                 submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
-                statusMessage.textContent = 'Sending message...';
-                statusMessage.style.color = 'blue';
-
+                
                 try {
                     // Sanitize input
                     const templateParams = {
-                        to_name: "Caleb",
                         from_name: name.slice(0, 100).replace(/[<>]/g, ''),
                         from_email: email.slice(0, 100).toLowerCase(),
                         subject: subject.slice(0, 200).replace(/[<>]/g, ''),
-                        message: message.slice(0, 1000).replace(/[<>]/g, '')
+                        message: message.slice(0, 1000).replace(/[<>]/g, ''),
                     };
 
-                    const response = await emailjs.send(
+                    // Rate limiting check
+                    const lastSubmit = localStorage.getItem('lastSubmit');
+                    const now = Date.now();
+                    if (lastSubmit && (now - parseInt(lastSubmit)) < 60000) {
+                        throw new Error('Please wait at least 1 minute between submissions.');
+                    }
+
+                    await emailjs.send(
                         'service_jqqfn9q',
                         'template_pjyxg1p',
                         templateParams
                     );
 
-                    if (response.status === 200) {
-                        statusMessage.textContent = 'Thank you for your message! I will get back to you soon.';
-                        statusMessage.style.color = 'green';
-                        this.reset();
-                        
-                        // Remove success message after 5 seconds
-                        setTimeout(() => {
-                            statusMessage.remove();
-                        }, 5000);
-                    } else {
-                        throw new Error('Failed to send message. Please try again.');
-                    }
+                    localStorage.setItem('lastSubmit', now.toString());
+                    alert('Thank you for your message! I will get back to you soon.');
+                    this.reset();
                 } catch (error) {
                     console.error('Form submission error:', error);
-                    statusMessage.textContent = error.message || 'Failed to send message. Please try again.';
-                    statusMessage.style.color = 'red';
+                    alert(error.message || 'Sorry, there was an error sending your message. Please try again later.');
                 } finally {
                     // Re-enable form
                     formElements.forEach(el => el.disabled = false);
